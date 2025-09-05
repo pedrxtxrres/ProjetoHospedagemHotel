@@ -1,0 +1,15 @@
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoHospedagemHotel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoHospedagemHotel.AssemblyInfoInputs.cache
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoHospedagemHotel.AssemblyInfo.cs
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoHospedagemHotel.csproj.CoreCompileInputs.cache
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoHospedagemHotel.sourcelink.json
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\bin\Debug\net9.0\ProjetoHospedagemHotel.exe
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\bin\Debug\net9.0\ProjetoHospedagemHotel.deps.json
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\bin\Debug\net9.0\ProjetoHospedagemHotel.runtimeconfig.json
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\bin\Debug\net9.0\ProjetoHospedagemHotel.dll
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\bin\Debug\net9.0\ProjetoHospedagemHotel.pdb
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoHospedagemHotel.dll
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\refint\ProjetoHospedagemHotel.dll
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoHospedagemHotel.pdb
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoHospedagemHotel.genruntimeconfig.cache
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ref\ProjetoHospedagemHotel.dll

@@ -7,7 +7,7 @@ namespace ProjetoHospedagemHotel.Models
 {
     public class Pessoa
     {
-        public Pessoa(string nome, string sobrenome, int cpf)
+        public Pessoa(string nome, string sobrenome, long cpf)
         {
             Nome = nome;
             Sobrenome = sobrenome;
@@ -15,7 +15,7 @@ namespace ProjetoHospedagemHotel.Models
         }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
-        public int Cpf { get; set; }
+        public long Cpf { get; set; }
 
     }
 }

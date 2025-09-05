@@ -7,36 +7,22 @@ namespace ProjetoHospedagemHotel.Models
 {
     public class Reserva
     {
+        public Reserva(long cpfResponsavel, List<Pessoa> hospedes, int quantidadeDeHospedes, int idDaSuite, DateTime dataInicialDaReserva, DateTime dataFinalDaReserva, decimal valorFinalDaReserva)
+        {
+            CpfResponsavel = cpfResponsavel;
+            Hospedes = hospedes;
+            QuantidadeDeHospedes = quantidadeDeHospedes;
+            IdDaSuite = idDaSuite;
+            DataInicialDaReserva = dataInicialDaReserva;
+            DataFinalDaReserva = dataFinalDaReserva;
+            ValorFinalDaReserva = valorFinalDaReserva;
+        }
+        public long CpfResponsavel { get; set; }
         public List<Pessoa> Hospedes { get; set; }
-        public List<Suite> Suite { get; set; }
-        public int DiasReservados { get; set; }
-
-
-        public void PausarTela()
-        {
-            Console.WriteLine("\nPressione qualquer tecla para continuar...");
-            Console.ReadKey();
-        }
-        public void CadastrarHospedes(Pessoa pessoa)
-        {
-            Hospedes.Add(pessoa);
-            Console.WriteLine($"{pessoa.Nome} {pessoa.Sobrenome} adicionado com sucesso!");
-            PausarTela();
-        }
-        public void CadastrarSuite(Suite suite)
-        {
-            Suite.Add(suite);
-            Console.WriteLine($"{suite.NomeDaSuite} adicionada com sucesso!");
-            PausarTela();
-        }
-        public int ObterQuantidadeHospedes()
-        {
-            int QuantidadeDeHospedes = Hospedes.Count;
-            return QuantidadeDeHospedes;
-        }
-        public decimal CalcularValorDiaria()
-        {
-            return 0;
-        }
+        public int QuantidadeDeHospedes { get; set; }
+        public int IdDaSuite { get; set; }
+        public DateTime DataInicialDaReserva { get; set; }
+        public DateTime DataFinalDaReserva { get; set; }
+        public decimal ValorFinalDaReserva { get; set; }
     }
 }
