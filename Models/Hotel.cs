@@ -160,7 +160,7 @@ namespace ProjetoHospedagemHotel.Models
                 string nomeHospedeResponsavel = hospede.Nome;
                 string sobrenomeHospedeResponsavel = hospede.Sobrenome;
                 nomeResponsavel = $"{nomeHospedeResponsavel} {sobrenomeHospedeResponsavel}";
-                return nomeHospedeResponsavel;
+                return nomeResponsavel;
             }
             else
             {

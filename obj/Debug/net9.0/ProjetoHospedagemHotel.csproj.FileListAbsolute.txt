@@ -13,3 +13,6 @@ C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\De
 C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoHospedagemHotel.pdb
 C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoHospedagemHotel.genruntimeconfig.cache
 C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ref\ProjetoHospedagemHotel.dll
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoHospedagemHotel.csproj.AssemblyReference.cache
+C:\Users\pedro\OneDrive\Área de Trabalho\Projetos\ProjetoHospedagemHotel\obj\Debug\net9.0\ProjetoH.449CA64C.Up2Date

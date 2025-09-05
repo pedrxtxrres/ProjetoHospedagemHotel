@@ -1,13 +1,107 @@
-﻿using ProjetoHospedagemHotel.Models;
+﻿using Newtonsoft.Json;
+using ProjetoHospedagemHotel.Models;
 using System.Globalization;
 using System.Linq;
 
 string opcao;
 bool exibirMenu = true;
-
 Hotel hotel = new Hotel();
+
+
+string diretorioRaiz = Directory.GetCurrentDirectory();
+string pastaDados = Path.Combine(diretorioRaiz, "Data");
+
+if (!Directory.Exists(pastaDados))
+{
+    Directory.CreateDirectory(pastaDados);
+}
+
+string pathHotel = $"{pastaDados}/Hotel";
+string pathHospedes = $"{pastaDados}/Hospedes";
+string pathSuites = $"{pastaDados}/Suites";
+string pathReservas = $"{pastaDados}/Reservas";
+
+try
+{
+    bool existe = File.Exists(pathHotel);
+
+    if (existe)
+    {
+        string jsonHotelDeserializar = File.ReadAllText(pathHotel);
+        hotel.NomeHotel = JsonConvert.DeserializeObject<string>(jsonHotelDeserializar);
+    }
+}
+catch (Exception)
+{
+    Console.WriteLine("Não foram encontradas informações sobre o hotel.");
+}
+
+try
+{
+    bool existe = File.Exists(pathHospedes);
+
+    if (existe)
+    {
+        string jsonHospedesDeserializar = File.ReadAllText(pathHospedes);
+        hotel.HospedesHotel = JsonConvert.DeserializeObject<List<Pessoa>>(jsonHospedesDeserializar);
+    }
+}
+catch (Exception)
+{
+    Console.WriteLine("Não foram encontradas informações sobre os hóspedes.");
+}
+
+try
+{
+    bool existe = File.Exists(pathSuites);
+
+    if (existe)
+    {
+        string jsonSuitesDeserializar = File.ReadAllText(pathSuites);
+        hotel.SuitesHotel = JsonConvert.DeserializeObject<List<Suite>>(jsonSuitesDeserializar);
+    }
+}
+catch (Exception)
+{
+    Console.WriteLine("Não foram encontradas informações sobre as suítes.");
+}
+
+try
+{
+    bool existe = File.Exists(pathReservas);
+
+    if (existe)
+    {
+        string jsonReservasDeserializar = File.ReadAllText(pathReservas);
+        hotel.ReservasHotel = JsonConvert.DeserializeObject<List<Reserva>>(jsonReservasDeserializar);
+    }
+}
+catch (Exception)
+{
+    Console.WriteLine("Não foram encontradas informações sobre as reservas.");    
+}
+
+
 Console.Clear();
-hotel.AdicionarNomeHotel();
+if (hotel.NomeHotel is null)
+{
+    hotel.AdicionarNomeHotel();
+}
+else
+{
+    Console.WriteLine($"Hotel {hotel.NomeHotel}");
+    Console.WriteLine($"Deseja iniciar outro hotel? 1 - Sim");
+
+    string iniciarOutroHotelTexto = Console.ReadLine();
+
+    if (int.TryParse(iniciarOutroHotelTexto, out int iniciarOutroHotel))
+    {
+        if (iniciarOutroHotel == 1)
+        {
+            hotel.AdicionarNomeHotel();
+        }
+    }
+}
 
 while (exibirMenu)
 {
@@ -228,6 +322,7 @@ while (exibirMenu)
                     if (cpfDoHospede >= 10000000000L && cpfDoHospede <= 99999999999L)
                     {
                         string nomeHospedeOut = hotel.BuscarHospedePeloCpf(cpfDoHospede);
+                        Console.WriteLine(nomeHospedeOut);
                         hotel.PausarTela();
                         exibiCpfDoHospede = false;
                         Console.WriteLine(nomeHospedeOut);
@@ -516,11 +611,25 @@ while (exibirMenu)
         case "7":
             Console.WriteLine("Sair");
             exibirMenu = false;
-            //Environment.Exit(0);
-            //reserva.PausarTela();
+
+            if (!Directory.Exists(pastaDados))
+            {
+                Directory.CreateDirectory(pastaDados);
+            }
+
+            string jsonHotel = JsonConvert.SerializeObject(hotel.NomeHotel);
+            File.WriteAllText(pathHotel,jsonHotel);
+
+            string jsonListaHospedes = JsonConvert.SerializeObject(hotel.HospedesHotel);
+            File.WriteAllText(pathHospedes,jsonListaHospedes);
+
+            string jsonListaSuites = JsonConvert.SerializeObject(hotel.SuitesHotel);
+            File.WriteAllText(pathSuites,jsonListaSuites);
+
+            string jsonListaReservas = JsonConvert.SerializeObject(hotel.ReservasHotel);
+            File.WriteAllText(pathReservas,jsonListaReservas);
 
             break;
-
         default:
             Console.Clear();
             Console.WriteLine("Opção inválida");
