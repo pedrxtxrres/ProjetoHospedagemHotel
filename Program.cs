@@ -19,9 +19,8 @@ while (exibirMenu)
     Console.WriteLine("3 - Quantidade de hóspedes cadastrados");
     Console.WriteLine("4 - Buscar Hóspede pelo CPF");
     Console.WriteLine("5 - Adicionar reserva");
-    Console.WriteLine("6 - Cancelar reserva");
-    Console.WriteLine("7 - Histórico de reservas pelo CPF"); 
-    Console.WriteLine("8 - Encerrar");
+    Console.WriteLine("6 - Histórico de reservas pelo CPF"); 
+    Console.WriteLine("7 - Encerrar");
 
     opcao = Console.ReadLine();
 
@@ -48,9 +47,17 @@ while (exibirMenu)
 
                 if (long.TryParse(cpfTexto, out cpf))
                 {
-                    exibiCpf = false;
-                    cpfValido = true;
-                    break;
+                    if (cpf >= 10000000000L && cpf <= 99999999999L)
+                    {
+                        exibiCpf = false;
+                        cpfValido = true;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("CPF deve ter exatamente 11 dígitos!");
+                        hotel.PausarTela();
+                    }
                 }
                 else
                 {
@@ -218,11 +225,19 @@ while (exibirMenu)
     
                 if (long.TryParse(cpfDoHospedeTexto, out long cpfDoHospede))
                 {
-                    string nomeHospedeOut = hotel.BuscarHospedePeloCpf(cpfDoHospede);
-                    hotel.PausarTela();
-                    exibiCpfDoHospede = false;
-                    Console.WriteLine(nomeHospedeOut);
-                    break;
+                    if (cpfDoHospede >= 10000000000L && cpfDoHospede <= 99999999999L)
+                    {
+                        string nomeHospedeOut = hotel.BuscarHospedePeloCpf(cpfDoHospede);
+                        hotel.PausarTela();
+                        exibiCpfDoHospede = false;
+                        Console.WriteLine(nomeHospedeOut);
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("CPF deve ter exatamente 11 dígitos!");
+                        hotel.PausarTela();
+                    }
                 }
                 else
                 {
@@ -248,14 +263,32 @@ while (exibirMenu)
 
                 if (string.IsNullOrEmpty(inputCpf))
                 {
+                    
                     exibiHospedesDaReserva = false;
                     break;
                 }
 
                 if (long.TryParse(inputCpf, out long cpfHospedeDaReserva))
                 {
-                    cpfsHospedes.Add(cpfHospedeDaReserva);
-                    Console.WriteLine($"CPF {cpfHospedeDaReserva} adicionado! Digite o próximo ou ENTER para finalizar.");
+                    if (cpfHospedeDaReserva >= 10000000000L && cpfHospedeDaReserva <= 99999999999L)
+                    {
+                        Pessoa cpfHospedeDaReservaPessoa = hotel.HospedesHotel.FirstOrDefault(hospede => hospede.Cpf == cpfHospedeDaReserva);
+                        if (cpfHospedeDaReservaPessoa == null)
+                        {
+                            Console.WriteLine("Este CPF não está cadastrado no hotel!");
+                            hotel.PausarTela();
+                        }
+                        else
+                        {
+                            cpfsHospedes.Add(cpfHospedeDaReserva);
+                            Console.WriteLine($"CPF {cpfHospedeDaReserva} adicionado! Digite o próximo ou ENTER para finalizar.");
+                        }                  
+                    }
+                    else
+                    {
+                        Console.WriteLine("CPF deve ter exatamente 11 dígitos!");
+                        hotel.PausarTela();
+                    }
                 }
                 else
                 {
@@ -278,9 +311,33 @@ while (exibirMenu)
 
                 if (long.TryParse(cpfResponsavelTexto, out cpfResponsavel))
                 {
-                    exibiCpfResponsavel = false;
-                    cpfResponsavelValido = true;
-                    break;
+                    if (cpfResponsavel >= 10000000000L && cpfResponsavel <= 99999999999L)
+                    {
+                        Pessoa hospedeResponsavel = hotel.HospedesHotel.FirstOrDefault(hospede => hospede.Cpf == cpfResponsavel);
+                        bool cpfResponavelPelaReservaEstaNaLista = cpfsHospedes.Contains(cpfResponsavel);
+
+                        if (hospedeResponsavel == null)
+                        {
+                            Console.WriteLine("Este CPF não está cadastrado no hotel!");
+                            hotel.PausarTela();
+                        }
+                        else if (!cpfResponavelPelaReservaEstaNaLista)
+                        {
+                            Console.WriteLine("Este CPF não está na lista de hóspedes desta reserva!");
+                            hotel.PausarTela();
+                        }
+                        else
+                        {
+                            exibiCpfResponsavel = false;
+                            cpfResponsavelValido = true;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("CPF deve ter exatamente 11 dígitos!");
+                        hotel.PausarTela();
+                    }
                 }
                 else
                 {
@@ -297,19 +354,42 @@ while (exibirMenu)
             {
                 Console.WriteLine("Qual o tipo de suíte da reserva?");
 
-                string tipoDaSuiteDaReservaTexto = Console.ReadLine();
+                bool exibiTipoDaSuiteReserva = true;
+                int tipoDaSuiteReserva = 0;
+                bool tipoDaSuiteReservaValido = false;
 
-                if (int.TryParse(tipoDaSuiteDaReservaTexto, out tipoDaSuiteDaReserva))
+                while (exibiTipoDaSuiteReserva)
                 {
-                    exibiTipoSuiteDaReserva = false;
-                    tipoDaSuiteDaReservaValido = true;
-                    break;
+                    Console.WriteLine("Digite o tipo da suite.");
+                    Console.WriteLine("1 - Básica");
+                    Console.WriteLine("2 - Intermediária");
+                    Console.WriteLine("3 - Completa");
+
+                    string tipoDaSuiteReservaTexto = Console.ReadLine();
+
+                    if (int.TryParse(tipoDaSuiteReservaTexto, out tipoDaSuiteReserva))
+                    {
+                        if (tipoDaSuiteReserva != 1 && tipoDaSuiteReserva != 2 && tipoDaSuiteReserva != 3)
+                        {
+                            Console.WriteLine("Tipo de suíte inválido! Digite 1, 2 ou 3.");
+                            hotel.PausarTela();
+                        }
+                        else
+                        {
+                            exibiTipoDaSuiteReserva = false;
+                            tipoDaSuiteReservaValido = true;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Tipo inválido! Digite apenas números.");
+                        hotel.PausarTela();
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("Tipo inválido! Digite apenas números.");
-                    hotel.PausarTela();
-                }
+
+
+
             }
 
             bool exibiDataInicialDaReserva = true;
@@ -343,7 +423,7 @@ while (exibirMenu)
 
             while (exibiDataFinalDaReserva)
             {
-                Console.WriteLine("Qual a data inical da reserva? (ex: dd/MM/aaaa)");
+                Console.WriteLine("Qual a data final da reserva? (ex: dd/MM/aaaa)");
 
                 string dataFinalDaReservaTexto = Console.ReadLine();
 
@@ -351,9 +431,17 @@ while (exibirMenu)
                                       CultureInfo.InvariantCulture, DateTimeStyles.None,
                                       out dataFinalDaReserva))
                 {
-                    exibiDataFinalDaReserva = false;
-                    dataFinalDaReservaValido = true;
-                    break;
+                    if (dataFinalDaReserva <= dataInicialDaReserva)
+                    {
+                        Console.WriteLine("Data inválida! A data final da reserva tem que ser posterior a data inicial da reserva.");
+                        hotel.PausarTela();
+                    }
+                    else
+                    {
+                        exibiDataFinalDaReserva = false;
+                        dataFinalDaReservaValido = true;
+                        break;
+                    }
                 }
                 else
                 {
@@ -387,11 +475,6 @@ while (exibirMenu)
         case "6":
             Console.Clear();
 
-
-            break;
-        case "7":
-            Console.Clear();
-
             Console.WriteLine("Digite o CPF responsável pelas reservas:");
             
             bool exibiCpfResponsavelPelaReserva = true;
@@ -400,15 +483,22 @@ while (exibirMenu)
 
             while (exibiCpfResponsavelPelaReserva)
             {
-                Console.WriteLine("Qual desses CPFs vai ser o responsável pela reserva?");
 
                 string cpfResponsavelPelaReservaTexto = Console.ReadLine();
 
                 if (long.TryParse(cpfResponsavelPelaReservaTexto, out cpfResponsavelPelaReserva))
                 {
-                    exibiCpfResponsavelPelaReserva = false;
-                    cpfResponsavelPelaReservaValido = true;
-                    break;
+                    if (cpfResponsavelPelaReserva >= 10000000000L && cpfResponsavelPelaReserva <= 99999999999L)
+                    {
+                        exibiCpfResponsavelPelaReserva = false;
+                        cpfResponsavelPelaReservaValido = true;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("CPF deve ter exatamente 11 dígitos!");
+                        hotel.PausarTela();
+                    }
                 }
                 else
                 {
@@ -423,7 +513,7 @@ while (exibirMenu)
             }
 
             break;
-        case "8":
+        case "7":
             Console.WriteLine("Sair");
             exibirMenu = false;
             //Environment.Exit(0);

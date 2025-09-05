@@ -39,9 +39,6 @@ namespace ProjetoHospedagemHotel.Models
         }
         private bool HaConflitoDeDatas(DateTime dataInicialDaNovaReserva, DateTime dataFinalDaNovaReserva, DateTime reservaDataInicial, DateTime reservaDataFinal)
         {
-            // Há conflito se:
-            // 1. Nova reserva começa antes da existente terminar E
-            // 2. Nova reserva termina depois da existente começar
             return dataInicialDaNovaReserva < reservaDataFinal && dataFinalDaNovaReserva > reservaDataInicial;
         }
         private bool VerificarDisponibilidadeSuite(int idSuite, DateTime dataInicial, DateTime dataFinal)
@@ -50,7 +47,6 @@ namespace ProjetoHospedagemHotel.Models
 
             foreach (Reserva reserva in reservasDaSuite)
             {
-                // Verifica se há sobreposição de datas
                 if (HaConflitoDeDatas(dataInicial, dataFinal, reserva.DataInicialDaReserva, reserva.DataFinalDaReserva))
                 {
                     return false;
@@ -68,7 +64,6 @@ namespace ProjetoHospedagemHotel.Models
                 return null;
             }
 
-            // 2. Para cada suíte do tipo, verificar se está disponível
             foreach (Suite suite in suitesDoTipoInformado)
             {
                 bool suiteDisponivel = VerificarDisponibilidadeSuite(suite.IdDaSuite, dataInicial, dataFinal);
@@ -79,7 +74,7 @@ namespace ProjetoHospedagemHotel.Models
                 }
             }
 
-            return null; // Nenhuma suíte disponível
+            return null;
         }
         private decimal CalcularValorReserva(int idSuite, DateTime dataInicial, DateTime dataFinal)
         {
