@@ -15,21 +15,6 @@
           }
         }
       }
-    },
-    "net9.0/win-x64": {
-      "Newtonsoft.Json/13.0.3": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
-        }
-      }
     }
   },
   "libraries": {
@@ -75,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Projetos\\ProjetoHospedagemHotel\\ProjetoHospedagemHotel.csproj",
+      "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Projetos\\ProjetoHotelHospedagem\\ProjetoHospedagemHotel.csproj",
       "projectName": "ProjetoHospedagemHotel",
-      "projectPath": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Projetos\\ProjetoHospedagemHotel\\ProjetoHospedagemHotel.csproj",
+      "projectPath": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Projetos\\ProjetoHotelHospedagem\\ProjetoHospedagemHotel.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Projetos\\ProjetoHospedagemHotel\\obj\\",
+      "outputPath": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Projetos\\ProjetoHotelHospedagem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -130,31 +115,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[9.0.8, 9.0.8]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[9.0.8, 9.0.8]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[9.0.8, 9.0.8]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
-      }
-    },
-    "runtimes": {
-      "win-x64": {
-        "#import": []
       }
     }
   }

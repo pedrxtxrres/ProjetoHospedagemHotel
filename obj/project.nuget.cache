@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "AscW+1VwzEo=",
+  "dgSpecHash": "W0qpO8FW8hk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Projetos\\ProjetoHospedagemHotel\\ProjetoHospedagemHotel.csproj",
+  "projectFilePath": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Projetos\\ProjetoHotelHospedagem\\ProjetoHospedagemHotel.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\pedro\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\pedro\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.8\\microsoft.netcore.app.runtime.win-x64.9.0.8.nupkg.sha512",
-    "C:\\Users\\pedro\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.8\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.8.nupkg.sha512",
-    "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.8\\microsoft.aspnetcore.app.runtime.win-x64.9.0.8.nupkg.sha512"
+    "C:\\Users\\pedro\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
